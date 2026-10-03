@@ -2,7 +2,7 @@
 
 ## current state - 2026-10-03
 
-version 1.1.0 release package. owner authorized public release after live checks, superseding the original private-only request. GitHub: adorablewhale/nocturne; only adorablewhale has collaborator access. real hub folder: other/nocturne.
+version 1.1.0 published publicly at https://github.com/adorablewhale/nocturne/releases/tag/v1.1.0 (release commit 90b9e51). owner authorized public release after live checks, superseding the original private-only request. GitHub: adorablewhale/nocturne; only adorablewhale has collaborator access. real hub folder: other/nocturne.
 
 main is installed and enabled in the owner's Equicord; companion installed and off. default wallpaper/blur are off. no account, security/privacy, plugin, autoplay or hardware-acceleration settings were changed. no messages, reactions or calls sent.
 
@@ -37,3 +37,4 @@ Discord selectors can drift. live light mode, calls/screen sharing, every premiu
 
 - 2026-10-03: created 1.0.0 as an owner-only private theme, normal plus companion, published at 13f5d11.
 - 2026-10-03: fixed the live reduced-motion reload bug; independently themed native Discord, added offline customization and optional single-background blur, audited live surfaces and measured process counters. restored missing finish against the published preview. owner then authorized release for other users after verification; prepared 1.1.0, updated public README/credit/measurement docs and release assets.
+- 2026-10-03: released public 1.1.0 at 90b9e51 with main CSS, companion, offline customizer and portable zip. installed files match the release; main alone enabled, wallpaper/blur off. only owner collaborator. refreshed the master graph after publication and handoff updates.
