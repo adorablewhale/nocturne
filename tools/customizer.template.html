@@ -1,0 +1,171 @@
+<!doctype html>
+
+<html lang="en">
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>nocturne · make it yours</title>
+
+<style>
+
+:root{color-scheme:dark;--ink:#e6e7f1;--muted:#969bb1;--accent:#b6a2ff;--line:#252431}
+
+*{box-sizing:border-box}body{margin:0;background:#05060a;color:var(--ink);font:14px/1.5 "Segoe UI",sans-serif}
+
+main{display:grid;grid-template-columns:320px minmax(0,1fr);height:100vh;min-height:620px}
+
+aside{overflow:auto;padding:28px 24px;border-right:1px solid var(--line);background:linear-gradient(155deg,#11101b,#08090e 65%)}
+
+.eyebrow{color:var(--accent);font:11px Consolas,monospace;letter-spacing:.15em}h1{font-size:28px;font-weight:550;letter-spacing:-.055em;margin:9px 0 4px}p{margin:0 0 20px;color:var(--muted);font-size:12px}
+
+fieldset{border:0;border-top:1px solid var(--line);padding:20px 0 0;margin:24px 0 0}legend{padding:0 8px 0 0;color:var(--ink);font-size:12px;font-weight:600}label{display:block;font-size:12px;color:#bfc0cf;margin:0 0 6px}.colors{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+input,select,button{font:inherit}input[type=color]{width:100%;height:38px;border:1px solid var(--line);border-radius:8px;background:#15141e;padding:4px;cursor:pointer}input[type=url],select{width:100%;padding:9px 11px;border:1px solid var(--line);background:#11121b;color:var(--ink);border-radius:8px;font-size:12px}select{cursor:pointer}input[type=file]{width:100%;font-size:11px;color:var(--muted)}input::file-selector-button{border:1px solid var(--line);background:#1b1927;color:var(--ink);border-radius:6px;padding:7px 9px;cursor:pointer;margin-right:8px}
+
+input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer}output{float:right;font-size:11px;color:var(--muted)}.control{margin-top:16px}.help{display:block;color:var(--muted);font-size:11px;margin:7px 0 0}.actions{display:grid;gap:8px;margin-top:24px}button{border:1px solid var(--line);border-radius:8px;padding:10px 12px;color:var(--ink);background:#16151f;cursor:pointer;font-size:12px;transition:background-color 150ms}button:hover{background:#232030}.primary{background:var(--accent);color:#151121;font-weight:600}.primary:hover{background:#c9baff}.link{background:transparent;padding:6px 0;border:0;color:var(--accent);font-size:11px;text-align:left}button:disabled{opacity:.5;cursor:default}input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid #8bdcf0;outline-offset:3px}
+
+.check{display:flex;align-items:center;gap:8px;margin-top:19px}.check input{accent-color:var(--accent)}.stage{display:flex;flex-direction:column;min-width:0}.stage header{padding:12px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px}.stage header span:last-child{color:#8bdcf0}iframe{width:100%;height:100%;border:0;flex:1;min-height:620px;background:#05060a}.notice{margin-top:14px;min-height:32px;color:var(--muted);font-size:11px}.notice.error{color:#f08c9d}.foot{font-size:10px;color:var(--muted);margin-top:22px}
+
+@media(max-width:1050px){main{grid-template-columns:280px minmax(0,1fr)}aside{padding:24px 18px}}@media(max-width:760px){main{display:block;height:auto}aside{border-right:0}.stage{height:780px}iframe{min-width:0}.stage header{gap:12px}}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+</style>
+
+<main>
+
+<aside>
+
+<div class="eyebrow">NOCTURNE / 1.1</div><h1>make it yours.</h1><p>same quiet look. your colors, your wallpaper.</p>
+
+<fieldset><legend>colors</legend><div class="colors"><div><label for="accent">accent</label><input id="accent" type="color" value="#b6a2ff"></div><div><label for="ice">secondary</label><input id="ice" type="color" value="#8bdcf0"></div></div></fieldset>
+
+<fieldset><legend>wallpaper · optional</legend><label for="local-image">choose a local image</label><input id="local-image" type="file" accept="image/png,image/jpeg,image/webp,image/avif,image/gif,image/bmp"><small class="help">local images stay on your computer and are resized to at most 1920 × 1080.</small>
+
+<div class="control"><label for="wallpaper-url">or use an image url</label><input id="wallpaper-url" type="url" placeholder="https://…/wallpaper.webp" spellcheck="false"></div><button id="clear-image" class="link" type="button">remove wallpaper</button>
+
+<div class="control"><label for="dim">darkness <output id="dim-value">65%</output></label><input id="dim" type="range" min="40" max="85" value="65"></div>
+
+<div class="control"><label for="blur">background blur</label><select id="blur"><option value="0">off · lightest</option><option value="4">soft · 4px</option><option value="8">softer · 8px</option></select><small class="help">blur costs extra. it only touches the wallpaper behind the interface.</small></div>
+
+<div class="control"><label for="position">position</label><select id="position"><option value="center">center</option><option value="center top">top</option><option value="left center">left</option><option value="right center">right</option></select></div></fieldset>
+
+<label class="check"><input id="low-preview" type="checkbox">preview low power</label><small class="help">low power turns off wallpaper, blur, glow and motion.</small>
+
+<div class="actions"><button id="download" class="primary" type="button">download my theme</button><button id="download-low" type="button">download low power</button><button id="reset" type="button">reset to nocturne</button></div>
+
+<div id="notice" class="notice" role="status" aria-live="polite">wallpaper and blur are off by default.</div>
+
+<div class="foot">replace nocturne.theme.css in your Equicord themes folder. keep the main theme on; toggle the low-power companion separately.</div>
+
+</aside><section class="stage" aria-label="theme preview"><header><span>live preview · sample content</span><span>black / violet / ice</span></header><iframe id="preview" title="customized theme preview" sandbox="allow-scripts"></iframe></section>
+
+</main>
+
+<script>
+
+/*__BUNDLE__*/
+
+const $=id=>document.getElementById(id), frame=$('preview');
+
+let wallpaper='', imageSequence=0, ready=false;
+
+const cssString=value=>'"'+value.replace(/[\\"\n\r\f]/g,c=>c==='\\'?'\\\\':c==='"'?'\\"':' ')+'"';
+
+const report=(message,error=false)=>{$('notice').textContent=message;$('notice').classList.toggle('error',error)};
+
+function customization(){
+
+  const color=$('accent').value, channels=color.slice(1).match(/../g).map(x=>parseInt(x,16)), rgb=channels.join(', ');
+
+  const hover='#'+channels.map(x=>Math.round(x+(255-x)*.26).toString(16).padStart(2,'0')).join('');
+
+  const luminance=channels.map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0);
+
+  const ink=color==='#b6a2ff'?'#151121':luminance>.179?'#000000':'#ffffff';
+
+  const blur=wallpaper?Number($('blur').value):0, alpha=Number($('dim').value)/100;
+
+  const image=wallpaper?`linear-gradient(rgba(3, 4, 6, ${alpha}), rgba(3, 4, 6, ${alpha})), url(${cssString(wallpaper)})`:'none';
+
+  return `\n/* personal preset, generated locally by nocturne */\n:root {\n  --main-color: ${color};\n  --hover-color: ${hover};\n  --aw-accent-rgb: ${rgb};\n  --aw-ice: ${$('ice').value};\n  --aw-wallpaper: ${image};\n  --aw-wallpaper-filter: ${blur?`blur(${blur}px)`:'none'};\n  --aw-wallpaper-inset: ${blur?`${-3*blur}px`:'0px'};\n  --background-position: ${$('position').value};\n}\n:is(.theme-dark, .theme-darker, .theme-midnight, .theme-light .theme-dark) { --button-filled-brand-text: ${ink}; }\n`;
+
+}
+
+function update(){
+
+  $('dim-value').textContent=$('dim').value+'%';
+
+  $('blur').disabled=!wallpaper;$('dim').disabled=!wallpaper;$('position').disabled=!wallpaper;
+
+  if(ready) frame.contentWindow.postMessage({type:'nocturne-preview',css:customization(),low:$('low-preview').checked},'*');
+
+}
+
+function download(text,name){const blob=new Blob([text],{type:'text/css;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+
+$('download').addEventListener('click',()=>download(themeBase+customization(),'nocturne.theme.css'));
+
+$('download-low').addEventListener('click',()=>download(lowBase,'nocturne-low-power.theme.css'));
+
+for(const id of ['accent','ice','dim','blur','position','low-preview']) $(id).addEventListener('input',update);
+
+$('wallpaper-url').addEventListener('change',()=>{
+
+  imageSequence++;$('download').disabled=false;const value=$('wallpaper-url').value.trim();
+
+  if(!value){wallpaper='';update();return}
+
+  try{const url=new URL(value);if(!['https:','http:'].includes(url.protocol)) throw Error();wallpaper=url.href;$('local-image').value='';report('url images load directly from that host. local images avoid that dependency.');update()}
+
+  catch{report('use an http or https image url, or choose a local image.',true)}
+
+});
+
+$('local-image').addEventListener('change',async()=>{
+
+  const file=$('local-image').files[0],sequence=++imageSequence;if(!file)return;
+
+  if(file.size>20*1024*1024){report('choose an image under 20 MB.',true);return}
+
+  $('download').disabled=true;report('preparing your wallpaper…');let bitmap;
+
+  try{
+
+    bitmap=await createImageBitmap(file);
+
+    const scale=Math.min(1,1920/bitmap.width,1080/bitmap.height),canvas=document.createElement('canvas');
+
+    canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+
+    canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);
+
+    const image=canvas.toDataURL('image/webp',.82);
+
+    if(sequence!==imageSequence)return;
+
+    wallpaper=image;$('wallpaper-url').value='';
+
+    const kib=Math.round((image.length-image.indexOf(',')-1)*.75/1024);
+
+    report(`${canvas.width} × ${canvas.height} · about ${kib} KiB embedded. no image upload.`);update();
+
+  }catch{if(sequence===imageSequence)report('that image could not be opened. try a png, jpg or webp.',true)}
+
+  finally{bitmap?.close();if(sequence===imageSequence)$('download').disabled=false}
+
+});
+
+function clearImage(){imageSequence++;wallpaper='';$('local-image').value='';$('wallpaper-url').value='';$('blur').value='0';$('download').disabled=false;report('wallpaper and blur are off.');update()}
+
+$('clear-image').addEventListener('click',clearImage);
+
+$('reset').addEventListener('click',()=>{$('accent').value='#b6a2ff';$('ice').value='#8bdcf0';$('dim').value='65';$('position').value='center';$('low-preview').checked=false;clearImage()});
+
+addEventListener('message',e=>{if(e.source===frame.contentWindow&&e.data?.type==='nocturne-ready'){ready=true;update()}});
+
+frame.srcdoc=previewSource;update();
+
+</script>
+
+</html>

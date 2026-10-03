@@ -1,12 +1,13 @@
 /**
  * @name nocturne low power
  * @author adorablewhale
- * @version 1.0.0
+ * @version 1.1.0
  * @description optional lighter rendering for nocturne. enable alongside the main theme.
  * @source https://github.com/adorablewhale/nocturne
  */
 
-/* companion toggle: keep nocturne enabled, then switch this theme on/off.
+/* Apache-2.0. copyright 2026 adorablewhale.
+   companion toggle: keep nocturne enabled, then switch this theme on/off.
    no imports, scripts, images, or font downloads. !important makes file order irrelevant.
    Discord, plugins, videos and GIFs still consume their own resources. */
 :root {
@@ -17,6 +18,9 @@
   --font-display: var(--main-font) !important;
   --font-code: var(--code-font) !important;
   --background-image: none !important;
+  --aw-wallpaper: none !important;
+  --aw-wallpaper-filter: none !important;
+  --aw-wallpaper-inset: 0px !important;
   --background-filter: none !important;
   --background-attachment: scroll !important;
   --user-popout-image: none !important;
