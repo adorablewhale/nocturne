@@ -80,3 +80,7 @@ edit `nocturne.theme.css` and `tools/customizer.template.html`; run the build af
 - `LICENSE-ClearVision`, `LICENSE-Geist`: retained license texts.
 
 the original template and some selectors/derived styling came from ClearVision Team under Apache-2.0. attribution remains even though its runtime engine is no longer loaded. Geist is by the Geist Project Authors under SIL Open Font License 1.1. the theme and customizer are by adorablewhale. author credit does not grant repository access.
+
+## compact proportions
+
+1.1.1 moves the compact preview styling into the actual theme. root controls `--aw-sidebar-width`, `--aw-message-size`, `--aw-channel-size` and `--aw-member-size` adjust the proportions. the body `--custom-guild-sidebar-width` rule overrides the saved sidebar width while enabled; remove that marked rule if you prefer Discord's native resizing. theme removal restores the saved width. role colors and custom profile banners remain Discord content.

@@ -39,3 +39,7 @@ live checks: Friends and theme settings; forum thread with code, mentions, react
 browser checks: dark/light palette, embedded fonts, selection, mentions, primary-button ink, focus, 960px layout, reduced motion, wallpaper sizing/export, background blur, reset, invalid URL rejection, narrow customizer and low power in either stylesheet order. dark custom accents export white primary-button ink. the customizer works from `file://` with no server or network requests. shipped previews contain synthetic content.
 
 not every Discord feature or plugin combination was tested. live light mode, calls, screen sharing, every premium/custom profile and long sessions remain outside the audit. no messages, reactions or calls were sent. local diagnostics and live screenshots are not published.
+
+1.1.1 transfers preview typography/spacing and the static rail/home/embed treatment into the live theme. it adds no images, blur, layers or animation. the measurements above belong to the 1.1.0 motion/native-engine fix; this visual correction does not establish further RAM savings.
+
+final 1.1.1 live announcement-channel check, 20 seconds with DevTools closed: private allocation mean 1090.72 MiB (1085.3–1094.36), CPU mean 12.06% of one core. this was a warm client after inspection, not a matched off/on comparison. no reproduced rising allocation spike during that bounded check; no additional savings claim.

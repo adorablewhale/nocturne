@@ -1,7 +1,7 @@
 /**
  * @name nocturne
  * @author adorablewhale
- * @version 1.1.0
+ * @version 1.1.1
  * @description black glass, soft violet, icy blue. a personal Equicord theme with optional low power.
  * @source https://github.com/adorablewhale/nocturne
  * @website https://github.com/adorablewhale/nocturne
@@ -26,6 +26,12 @@
   --aw-row-radius: 9px;
   --aw-speed: 180ms;
   --aw-ease: cubic-bezier(.2, .8, .2, 1);
+  /* the compact proportions shown in the preview. edit these values for your
+     display; remove the marked body width rule below for Discord's own resizing. */
+  --aw-sidebar-width: 244px;
+  --aw-message-size: 13px;
+  --aw-channel-size: 13px;
+  --aw-member-size: 12px;
   /* optional wallpaper. customize.html exports these controls for you.
      keep none for the lightest mode; blur applies to the background only. */
   --aw-wallpaper: none;
@@ -407,6 +413,36 @@ html, body, #app-mount { background: transparent; }
 .base__5e434, .content__5e434 { background: transparent; }
 .sidebar__5e434::after { display: none; }
 .bar_c38106 { background: transparent; }
+/* preview typography and surfaces belong in the installed CSS as well. */
+body { --custom-guild-sidebar-width: calc(72px + var(--aw-sidebar-width)) !important; }
+.wrapper_ef3116 { background: transparent; }
+.tutorialContainer__1f388 .childWrapper__6e9f8 {
+  background: rgba(var(--aw-accent-rgb), .14);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--aw-border-hover);
+}
+.container__9293f.themed__9293f .icon__9293f { color: var(--main-color); }
+.sidebarList__5e434 .name__2ea32,
+.sidebarList__5e434 .name__2ea32 > [data-text-variant] { font-size: var(--aw-channel-size); }
+.panels__5e434 [data-text-variant] { font-size: 12px; }
+.channelTextArea__74017 :is([role="textbox"], [data-slate-placeholder]) { font-size: 12px; }
+.chatContent_f75fb0 .markup__75297 {
+  font-size: var(--aw-message-size);
+  line-height: 1.8;
+}
+.chatContent_f75fb0 .username_c19a55 {
+  font-size: var(--aw-message-size);
+  font-weight: 500;
+}
+.chatContent_f75fb0 .timestamp_c19a55 {
+  font-family: var(--code-font);
+  font-size: 10px;
+}
+.members_c8ffbb .name__703b9 { font-size: var(--aw-member-size); }
+.members_c8ffbb :is(.subText__5d473, .activityText__5d473) { font-size: 10px; }
+.embedFull__623de:not([style*="border-color"]):not([style*="border-left-color"]) {
+  border-left-color: var(--main-color);
+}
 .container__133bf, .nowPlayingColumn__133bf { background: var(--aw-surface); }
 .peopleListItem__0a06e { border-color: var(--aw-border); }
 .peopleListItem__0a06e:hover { background: var(--aw-hover); }

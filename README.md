@@ -26,13 +26,14 @@ https://raw.githubusercontent.com/adorablewhale/nocturne/main/nocturne.theme.css
 ### what it does
 
 - **quiet color** - near-black panels, soft violet selection, icy focus, readable buttons.
+- **compact styling** - 244px channel sidebar, 13px messages/channel labels and 12px member names; the preview styling is applied inside Discord.
 - **your wallpaper** - open the downloaded `customize.html`, pick colors or a local image, and export your theme. optional background blur stays off by default.
 - **low power** - disables wallpaper, background blur, decorative glow and CSS motion. either theme-file order works.
 - **self-contained** - embedded Geist fonts and crescent icon; no ClearVision engine or theme scripts.
 
 ![low power - sample interface](low-power-preview.png)
 
-these previews contain sample messages, a sample banner and a sample welcome screen. they illustrate the palette and surfaces; Discord supplies your actual layout and content.
+these previews contain sample messages and avatars. the earlier mock-only banner and card were removed; theme colors and compact typography now come from the installed CSS. Discord supplies your server content, role colors, controls and layout.
 
 ### customization and performance
 

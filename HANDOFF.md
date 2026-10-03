@@ -2,9 +2,9 @@
 
 ## current state - 2026-10-03
 
-version 1.1.0 published publicly at https://github.com/adorablewhale/nocturne/releases/tag/v1.1.0 (release commit 90b9e51). owner authorized public release after live checks, superseding the original private-only request. GitHub: adorablewhale/nocturne; only adorablewhale has collaborator access. real hub folder: other/nocturne.
+version 1.1.1. public release location: https://github.com/adorablewhale/nocturne/releases/tag/v1.1.1. previous 1.1.0 release commit: 90b9e51. owner authorized public release after live checks, superseding the original private-only request. GitHub: adorablewhale/nocturne; only adorablewhale has collaborator access. real hub folder: other/nocturne.
 
-main is installed and enabled in the owner's Equicord; companion installed and off. default wallpaper/blur are off. no account, security/privacy, plugin, autoplay or hardware-acceleration settings were changed. no messages, reactions or calls sent.
+1.1.1 main is installed and enabled in the owner's Equicord; companion installed and off. default wallpaper/blur are off. no account, security/privacy, plugin, autoplay or hardware-acceleration settings were changed. no messages, reactions or calls sent.
 
 self-contained native Discord palette bridge and focused overrides: black/violet/ice, Geist/Geist Mono embedded, selected-channel edge, filled composer, soft borders/shadows and crescent home icon. no ClearVision runtime imports; Apache upstream notice retained. normal mode preserves hover feel when reduced motion is off.
 
@@ -12,7 +12,7 @@ self-contained native Discord palette bridge and focused overrides: black/violet
 
 1.0.0 reduced-motion rules used .01ms animation durations. live toggling/reloads caused high CPU and allocation growth with DevTools closed. replacing only those rules with animation:none / transition:none stopped the reproduced spike without removing the complete original theme. both the Discord class and OS preference are covered by tests. never restore tiny duration workarounds.
 
-1.1.0 removes the runtime engine without discarding the original look. comparison against the published 1.0.0 preview found the composer's filled background and title spacing missing; both restored. also fixed the crescent leaking onto letter-only guilds, native floating-surface transparency and picker backgrounds. the README labels synthetic banner/welcome content accurately.
+1.1.0 removes the runtime engine without discarding the original look. comparison against the published 1.0.0 preview found the composer's filled background and title spacing missing; both restored. also fixed the crescent leaking onto letter-only guilds, native floating-surface transparency and picker backgrounds. 1.1.1 then transfers compact typography and width into the installed CSS and removes the preview-only banner/welcome/card. the synthetic preview remains a fixture, not a live screenshot.
 
 ## customization / low power
 
@@ -38,3 +38,5 @@ Discord selectors can drift. live light mode, calls/screen sharing, every premiu
 - 2026-10-03: created 1.0.0 as an owner-only private theme, normal plus companion, published at 13f5d11.
 - 2026-10-03: fixed the live reduced-motion reload bug; independently themed native Discord, added offline customization and optional single-background blur, audited live surfaces and measured process counters. restored missing finish against the published preview. owner then authorized release for other users after verification; prepared 1.1.0, updated public README/credit/measurement docs and release assets.
 - 2026-10-03: released public 1.1.0 at 90b9e51 with main CSS, companion, offline customizer and portable zip. installed files match the release; main alone enabled, wallpaper/blur off. only owner collaborator. refreshed the master graph after publication and handoff updates.
+
+- 2026-10-03: owner flagged the local preview still overstated real-client appearance. 1.1.1 transfers 244px sidebar, 13px messages/channel spans, 12px member names, static rail gradient, home border and default-embed accent into the actual CSS. native Elements inspection verified the nested label span; desktop screenshots show the installed result, kept ignored/local. removed mock-only banner/welcome/card, rebuilt customizer/previews, export/motion/browser checks passed. final 20s guild sample after DevTools closed: private allocation mean 1090.72 MiB, range 1085.3–1094.36; CPU 12.06% of one core. different warm content/caches, no further savings claim.
