@@ -2,9 +2,9 @@
 
 ## current state - 2026-10-03
 
-version 1.1.1. public release location: https://github.com/adorablewhale/nocturne/releases/tag/v1.1.1. previous 1.1.0 release commit: 90b9e51. owner authorized public release after live checks, superseding the original private-only request. GitHub: adorablewhale/nocturne; only adorablewhale has collaborator access. real hub folder: other/nocturne.
+version 1.1.2. public release location: https://github.com/adorablewhale/nocturne/releases/tag/v1.1.2. previous 1.1.0 release commit: 90b9e51. owner authorized public release after live checks, superseding the original private-only request. GitHub: adorablewhale/nocturne; only adorablewhale has collaborator access. real hub folder: other/nocturne.
 
-1.1.1 main is installed and enabled in the owner's Equicord; companion installed and off. default wallpaper/blur are off. no account, security/privacy, plugin, autoplay or hardware-acceleration settings were changed. no messages, reactions or calls sent.
+1.1.2 main is installed and enabled in the owner's Equicord; companion installed and off. default wallpaper/blur are off. no account, security/privacy, plugin, autoplay or hardware-acceleration settings were changed. no messages, reactions or calls sent.
 
 self-contained native Discord palette bridge and focused overrides: black/violet/ice, Geist/Geist Mono embedded, selected-channel edge, filled composer, soft borders/shadows and crescent home icon. no ClearVision runtime imports; Apache upstream notice retained. normal mode preserves hover feel when reduced motion is off.
 
@@ -40,3 +40,5 @@ Discord selectors can drift. live light mode, calls/screen sharing, every premiu
 - 2026-10-03: released public 1.1.0 at 90b9e51 with main CSS, companion, offline customizer and portable zip. installed files match the release; main alone enabled, wallpaper/blur off. only owner collaborator. refreshed the master graph after publication and handoff updates.
 
 - 2026-10-03: owner flagged the local preview still overstated real-client appearance. 1.1.1 transfers 244px sidebar, 13px messages/channel spans, 12px member names, static rail gradient, home border and default-embed accent into the actual CSS. native Elements inspection verified the nested label span; desktop screenshots show the installed result, kept ignored/local. removed mock-only banner/welcome/card, rebuilt customizer/previews, export/motion/browser checks passed. final 20s guild sample after DevTools closed: private allocation mean 1090.72 MiB, range 1085.3–1094.36; CPU 12.06% of one core. different warm content/caches, no further savings claim.
+
+- 2026-10-03: 1.1.2 removes the last preview-only member-card markup, rebuilds screenshots/customizer and corrects the maintenance version. live appearance is unchanged from the verified 1.1.1 compact styling; real captures remain local/ignored.

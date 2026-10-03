@@ -4,7 +4,7 @@ black glass, soft violet, icy blue. my personal equicord theme.
 
 ![normal mode](preview.png)
 
-version 1.1.0 runs on Discord's own interface styles. no ClearVision imports, remote fonts, theme scripts or image downloads by default. Geist and Geist Mono are embedded. the owner authorized public release after verification; only adorablewhale has collaborator access.
+version 1.1.2 runs on Discord's own interface styles. no ClearVision imports, remote fonts, theme scripts or image downloads by default. Geist and Geist Mono are embedded. the owner authorized public release after verification; only adorablewhale has collaborator access.
 
 the previews use sample messages and a sample server. no real Discord conversations or profile screenshots are included.
 

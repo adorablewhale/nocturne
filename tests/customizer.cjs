@@ -17,6 +17,14 @@ const root = path.resolve(__dirname, '..');
     await page.goto(pathToFileURL(path.join(root, 'customize.html')).href);
     const preview = page.frames().find(frame => frame !== page.mainFrame());
     await preview.waitForFunction(() => document.querySelector('#custom-preset'));
+    // Test a native primary button without inventing a visible sidebar card.
+    await preview.evaluate(() => {
+      const button = document.createElement('button');
+      button.className = 'button__201d5 lookFilled__201d5 colorBrand__201d5';
+      button.style.cssText = 'position:fixed;left:-10000px';
+      button.textContent = 'test';
+      document.body.append(button);
+    });
     const read = () => preview.locator('.bg__960e4').evaluate(el => {
       const cs = getComputedStyle(el), vars = getComputedStyle(document.documentElement);
       return { image: cs.backgroundImage, filter: cs.filter, inset: cs.top,
