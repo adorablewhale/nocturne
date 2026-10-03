@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" class="theme-dark theme-midnight visual-refresh">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>nocturne · theme preview</title>
+<!-- a sample Discord layout, not a screenshot of the live client.
+     base layout below supplies the structure Discord normally supplies.
+     nocturne.theme.css and its real ClearVision imports supply the theme. -->
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 sans-serif;color:var(--text-default);background:#05060a}
+button,a{color:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.45}a{text-decoration:none}
+.demo-app{height:100vh;min-height:650px;display:grid;grid-template-rows:38px 1fr;isolation:isolate}.bg__960e4{position:fixed;inset:0;pointer-events:none}
+.demo-title{display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid var(--aw-border);color:var(--text-muted);font-size:11px;letter-spacing:.04em}
+.leading_c38106{display:flex;align-items:center}.demo-controls{display:flex;align-items:center;gap:12px}.demo-controls button{padding:3px 9px;border:1px solid var(--aw-border);border-radius:6px;background:var(--card-shading);font-size:11px}
+.demo-layout{display:grid;grid-template-columns:76px 244px 1fr;min-height:0;padding-top:8px}
+.demo-rail{display:flex;align-items:center;flex-direction:column;gap:14px;padding:10px 0;background:rgba(0,0,0,.08)}
+.demo-server,.childWrapper__6e9f8{width:46px;height:46px;border:0;border-radius:16px;display:grid;place-items:center;background:var(--card-shading);font-size:17px;font-weight:600;color:var(--channel-normal)}
+.demo-rail hr{width:25px;border:0;border-top:1px solid var(--aw-border);margin:0}.demo-server.active{box-shadow:inset 0 0 0 1px var(--aw-border-hover);color:var(--main-color)}
+.demo-sidebar{display:flex;flex-direction:column;min-width:0;overflow:hidden}.demo-serverhead{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 19px;font-weight:600}
+.demo-banner{padding:22px 18px 18px;border-bottom:1px solid var(--aw-border);background:radial-gradient(ellipse at 10% 0,rgba(182,162,255,.10),transparent 85%)}
+.demo-banner small{font:10px var(--code-font);color:var(--main-color);letter-spacing:.16em}.demo-banner h2{font-size:22px;line-height:1.25;letter-spacing:-.06em;font-weight:500;margin:8px 0 6px}.demo-banner p{font-size:11px;margin:0;color:var(--text-muted)}
+.demo-channels{padding:17px 10px;flex:1}.demo-category{padding:12px 10px 7px;display:flex;gap:7px}.name__29444{flex:1}.wrapper__2ea32{position:relative;margin:3px 0}.link__2ea32{display:flex;position:relative;align-items:center;padding:8px 11px;gap:9px;font-size:13px}.icon__2ea32{font-size:19px;line-height:1;flex:none}.name__2ea32{flex:1}.demo-count{font:10px var(--code-font);color:var(--main-color)}
+.demo-voiceusers{margin:7px 0 0 30px;font-size:11px;color:var(--text-muted);display:grid;gap:9px}.demo-voiceusers span{display:flex;gap:8px;align-items:center}.demo-voiceusers i{width:18px;height:18px;border-radius:50%;background:#203128}
+.demo-user{position:relative!important;width:100%!important;left:auto!important;bottom:auto!important;margin-top:auto;display:flex;gap:10px;align-items:center;padding:14px!important}.demo-user strong{font-size:12px;font-weight:500}.demo-user small{display:block;font:10px var(--code-font);color:var(--text-muted)}.demo-usericons{margin-left:auto;display:flex;gap:12px;color:var(--text-muted)}
+.demo-avatar{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#4b405a,#242335);color:#e8ddff;font-size:12px;font-weight:500;flex:none;position:relative}.demo-avatar.blue{background:linear-gradient(135deg,#304e5b,#1a2934);color:#baeeff}.demo-avatar.green{background:linear-gradient(135deg,#345447,#182a24);color:#b9eed3}.demo-avatar.rose{background:linear-gradient(135deg,#5b3b48,#2a202c);color:#e9c9d8}.demo-avatar.online::after{content:"";position:absolute;right:0;bottom:0;width:9px;height:9px;background:var(--online-color);border:2px solid #0c0d13;border-radius:50%}
+.demo-main{display:grid;grid-template-rows:54px 1fr;min-height:0;min-width:0}.demo-header{display:flex;align-items:center;gap:12px;padding:0 23px;min-width:0}.demo-header .hash{font-size:23px;color:var(--main-color)}.demo-header strong{font-size:14px;font-weight:500}.demo-topic{border-left:1px solid var(--aw-border);padding-left:15px;color:var(--text-muted);font-size:11px}.demo-tools{margin-left:auto;display:flex;gap:18px;color:var(--text-muted);font-size:17px}
+.demo-chatlayout{display:grid;grid-template-columns:minmax(0,1fr) 218px;min-height:0}.demo-chat{display:flex;flex-direction:column;min-height:0;min-width:0}.demo-messages{padding:25px 0 15px;flex:1;overflow:auto}.demo-welcome{padding:5px 30px 24px}.demo-welcome .orb{width:46px;height:46px;background:rgba(182,162,255,.09);border:1px solid var(--aw-border);border-radius:16px;display:grid;place-items:center;color:var(--main-color);font-size:26px}.demo-welcome h1{font-weight:500;letter-spacing:-.04em;margin:13px 0 4px;font-size:29px}.demo-welcome p{margin:0;color:var(--text-muted);font-size:12px}.demo-date{display:flex;gap:14px;align-items:center;margin:0 28px 23px;color:var(--text-muted);font:10px var(--code-font)}.demo-date::before,.demo-date::after{content:"";height:1px;background:var(--aw-border);flex:1}
+.demo-message{position:relative;display:flex;gap:15px;padding:9px 28px;margin:5px 0}.demo-message>section{min-width:0}.demo-message h3{margin:0 0 3px;font-weight:500;font-size:13px}.demo-message time{font:10px var(--code-font);margin-left:9px;color:var(--text-muted)}.demo-message p{margin:0;font-size:13px;line-height:1.8}.demo-message .username{color:var(--main-color)}.demo-message .ice{color:var(--aw-ice)}.demo-message .rose{color:#e8b4cf}.demo-message code{font-size:11px}.demo-message .mentioned__5126c::before{width:2px}.demo-message.mentioned__5126c::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px}.demo-message .wrapper_f61d60{font-weight:500}
+.demo-embed{margin:12px 0 6px;max-width:450px;border-left:3px solid var(--main-color);padding:16px 18px;background:var(--card-shading)}.demo-embed small{font:9px var(--code-font);letter-spacing:.1em;color:var(--text-muted)}.demo-embed h4{margin:6px 0;color:var(--text-strong);font-weight:500;font-size:15px;letter-spacing:-.02em}.demo-embed p{color:var(--text-muted);font-size:12px}.demo-swatches{display:flex;gap:7px;margin-top:14px}.demo-swatches span{width:24px;height:7px;border-radius:4px}.demo-reactions{display:flex;gap:6px;margin-top:10px}.demo-reactions button{font-size:11px;border:1px solid var(--aw-border);padding:3px 9px;color:var(--text-default)}
+.demo-compose{padding:10px 24px 15px}.demo-input{display:flex;align-items:center;padding:13px 14px;gap:16px}.demo-input input{width:100%;background:transparent;border:0;outline:0!important;box-shadow:none;color:var(--normal-text);font-size:12px}.demo-input input::placeholder{color:var(--text-muted)}.demo-plus{width:20px;height:20px;background:var(--aw-muted);color:var(--aw-surface-raised);border:0;border-radius:50%;font-size:16px;line-height:1;padding:0;flex:none}.demo-inputtools{white-space:nowrap;color:var(--text-muted);font-size:17px}.demo-typing{font-size:10px;margin:7px 4px 0;color:var(--text-muted)}.demo-typing b{color:var(--channel-normal);font-weight:500}
+.demo-members{padding:25px 15px;overflow:auto}.membersGroup_c8ffbb{margin:0 0 13px;padding-left:9px;font-weight:500}.demo-member{display:flex;gap:11px;align-items:center;padding:7px 9px;margin-bottom:4px}.demo-member .demo-avatar{width:30px;height:30px;font-size:10px}.demo-member strong{font-weight:500;font-size:12px;color:var(--channel-normal)}.demo-member small{display:block;color:var(--text-muted);font-size:10px}.demo-member.offline{opacity:.6}.demo-member:hover{background:var(--aw-hover)}.demo-members .membersGroup_c8ffbb:not(:first-child){margin-top:24px}.demo-membercard{border:1px solid var(--aw-border);border-radius:12px;padding:14px;margin-top:30px;background:var(--card-shading)}.demo-membercard small{font:9px var(--code-font);letter-spacing:.1em;color:var(--aw-ice)}.demo-membercard p{font-size:11px;color:var(--text-muted);margin:7px 0 13px}.demo-membercard button{padding:6px 11px;border:0;font-size:11px}.demo-footer{font:9px var(--code-font);color:var(--text-muted);padding:20px 8px;opacity:.6}
+@media(max-width:1100px){.demo-chatlayout{grid-template-columns:1fr}.demo-members{display:none}}@media(max-width:750px){.demo-layout{grid-template-columns:60px 170px 1fr}.demo-topic,.demo-tools{display:none}.demo-welcome{padding-left:20px}.demo-message{padding-left:16px;padding-right:16px}.demo-embed{max-width:100%}.demo-controls span{display:none}.demo-banner h2{font-size:20px}}
+</style>
+<link rel="stylesheet" href="nocturne.theme.css">
+<link id="low-power" rel="stylesheet" href="nocturne-low-power.theme.css" disabled>
+<script>document.querySelector('#low-power').disabled=!new URLSearchParams(location.search).has('low');</script>
+<div class="demo-app">
+  <div class="bg__960e4" aria-hidden="true"></div>
+  <div class="demo-title"><div class="leading_c38106"></div><div class="demo-controls"><span>theme preview · sample content</span><button id="power">low power: off</button><button id="appearance">light preview</button></div></div>
+  <div class="demo-layout">
+    <nav class="demo-rail" aria-label="sample servers">
+      <a class="wrapper__6e9f8 selected__6e9f8" href="#" aria-label="home"><div class="childWrapper__6e9f8"><svg viewBox="0 0 48 48" aria-hidden="true"></svg></div></a>
+      <hr><button class="demo-server active" aria-label="whale server">aw</button><button class="demo-server" aria-label="studio">s.</button><button class="demo-server" aria-label="orbit">o</button><hr><button class="demo-server" aria-label="add server" style="color:var(--success-color)">+</button>
+    </nav>
+    <aside class="demo-sidebar sidebarList__5e434">
+      <div class="demo-serverhead header_f37cb1">the quiet corner <span style="color:var(--text-muted)">⌄</span></div>
+      <div class="demo-banner"><small>AFTER HOURS</small><h2>a little less noise.</h2><p>a place to make things &amp; hang out.</p></div>
+      <nav class="demo-channels" aria-label="sample channels">
+        <div class="demo-category"><span class="name__29444">the essentials</span><span style="color:var(--text-muted)">+</span></div>
+        <div class="wrapper__2ea32"><a class="link__2ea32" href="#"><span class="icon__2ea32">#</span><span class="name__2ea32">welcome</span></a></div>
+        <div class="wrapper__2ea32 modeSelected__2ea32"><a class="link__2ea32" href="#" aria-current="page"><span class="icon__2ea32">#</span><span class="name__2ea32">general</span></a></div>
+        <div class="wrapper__2ea32 modeUnreadImportant__2ea32"><a class="link__2ea32" href="#"><span class="icon__2ea32">#</span><span class="name__2ea32">showcase</span><span class="demo-count">02</span></a></div>
+        <div class="demo-category"><span class="name__29444">in the works</span></div>
+        <div class="wrapper__2ea32"><a class="link__2ea32" href="#"><span class="icon__2ea32">#</span><span class="name__2ea32">ideas</span></a></div>
+        <div class="wrapper__2ea32"><a class="link__2ea32" href="#"><span class="icon__2ea32">#</span><span class="name__2ea32">dev-log</span></a></div>
+        <div class="wrapper__2ea32 modeMuted__2ea32"><a class="link__2ea32" href="#"><span class="icon__2ea32">#</span><span class="name__2ea32">archive</span></a></div>
+        <div class="demo-category"><span class="name__29444">stay a while</span></div>
+        <div class="wrapper__2ea32"><a class="link__2ea32" href="#"><span class="icon__2ea32">♧</span><span class="name__2ea32">late night</span></a></div>
+        <div class="demo-voiceusers"><span><i></i> luna</span><span><i style="background:#2b314b"></i> kai</span></div>
+      </nav>
+      <div class="demo-user panels__5e434"><div class="demo-avatar online">aw</div><div><strong>adorablewhale</strong><small>online</small></div><div class="demo-usericons"><span>♬</span><span>⚙</span></div></div>
+    </aside>
+    <main class="demo-main">
+      <header class="demo-header container__9293f themed__9293f"><span class="hash">#</span><strong>general</strong><span class="demo-topic">good company, small hours.</span><div class="demo-tools"><span>♧</span><span>♧</span><span>⌕</span><span>◫</span></div></header>
+      <div class="demo-chatlayout">
+        <div class="demo-chat chatContent_f75fb0">
+          <div class="demo-messages auto__99f8c">
+            <div class="demo-welcome"><div class="orb">#</div><h1>the night is yours.</h1><p>this is the beginning of #general. make yourself comfortable.</p></div>
+            <div class="demo-date">october 3, 2026</div>
+            <article class="demo-message message__5126c"><div class="demo-avatar online">aw</div><section><h3><span class="username">adorablewhale</span><time>10:42 pm</time></h3><p>finally gave this place a little atmosphere.</p><p>black, but with a little color to it.</p><div class="demo-embed embedFull__623de"><small>NOCTURNE / 01</small><h4>something softer for the small hours.</h4><p>violet light. icy blue details. a little room to breathe.</p><div class="demo-swatches"><span style="background:#08080e"></span><span style="background:#292538"></span><span style="background:#b6a2ff"></span><span style="background:#8bdcf0"></span><span style="background:#80d9b1"></span></div></div><div class="demo-reactions"><button class="reaction__23977 reactionMe__23977">☾ &nbsp; 4</button><button class="reaction__23977">♡ &nbsp; 2</button></div></section></article>
+            <article class="demo-message message__5126c"><div class="demo-avatar blue online">lu</div><section><h3><span class="ice">luna</span><time>10:44 pm</time></h3><p>the violet is so nice with the black.</p><p>and the glow isn't fighting with the messages anymore</p></section></article>
+            <article class="demo-message message__5126c mentioned__5126c"><div class="demo-avatar rose">ka</div><section><h3><span class="rose">kai</span><time>10:45 pm</time></h3><p><span class="wrapper_f61d60">@adorablewhale</span> keeping this one. the font feels really clean too.</p></section></article>
+            <article class="demo-message message__5126c"><div class="demo-avatar online">aw</div><section><h3><span class="username">adorablewhale</span><time>10:46 pm</time></h3><p>geist &amp; geist mono. same as my site.</p><p>just drop <code class="inline">nocturne.theme.css</code> in the themes folder ☾</p></section></article>
+          </div>
+          <div class="demo-compose"><div class="demo-input channelTextArea__74017"><button class="demo-plus" aria-label="attach file">+</button><input aria-label="sample message" placeholder="message #general"><span class="demo-inputtools">◈ &nbsp; ☺</span></div><div class="demo-typing">••• &nbsp; <b>luna</b> is typing</div></div>
+        </div>
+        <aside class="demo-members membersWrap_c8ffbb"><h3 class="membersGroup_c8ffbb">online — 4</h3><div class="demo-member member__5d473"><div class="demo-avatar online">aw</div><div><strong style="color:var(--main-color)">adorablewhale</strong><small>making things</small></div></div><div class="demo-member member__5d473"><div class="demo-avatar blue online">lu</div><div><strong style="color:var(--aw-ice)">luna</strong><small>listening to music</small></div></div><div class="demo-member member__5d473"><div class="demo-avatar rose online">ka</div><div><strong>kai</strong><small>just hanging out</small></div></div><div class="demo-member member__5d473"><div class="demo-avatar green online">so</div><div><strong>sol</strong></div></div><h3 class="membersGroup_c8ffbb">offline — 2</h3><div class="demo-member offline"><div class="demo-avatar">mi</div><strong>milo</strong></div><div class="demo-member offline"><div class="demo-avatar blue">ar</div><strong>ari</strong></div><div class="demo-membercard vc-addon-card"><small>YOUR OWN LITTLE CORNER</small><p>a personal theme for equicord. built around what feels like you.</p><button class="button__201d5 lookFilled__201d5 colorBrand__201d5">make yourself at home</button></div><div class="demo-footer">nocturne · by adorablewhale</div></aside>
+      </div>
+    </main>
+  </div>
+</div>
+<script>
+document.querySelector('#appearance').addEventListener('click',()=>{const light=document.documentElement.classList.toggle('theme-light');document.documentElement.classList.toggle('theme-dark',!light);document.documentElement.classList.toggle('theme-midnight',!light);document.querySelector('#appearance').textContent=light?'dark preview':'light preview'});
+const powerButton=document.querySelector('#power'),powerSheet=document.querySelector('#low-power');
+const powerLabel=()=>{powerButton.textContent=powerSheet.disabled?'low power: off':'low power: on';powerButton.setAttribute('aria-pressed',String(!powerSheet.disabled))};
+powerButton.addEventListener('click',()=>{powerSheet.disabled=!powerSheet.disabled;powerLabel()});powerLabel();
+document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+</script>
+</html>

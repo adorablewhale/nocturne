@@ -1,0 +1,92 @@
+/**
+ * @name nocturne low power
+ * @author adorablewhale
+ * @version 1.0.0
+ * @description optional lighter rendering for nocturne. enable alongside the main theme.
+ * @source https://github.com/adorablewhale/nocturne
+ */
+
+/* companion toggle: keep nocturne enabled, then switch this theme on/off.
+   no imports, scripts, images, or font downloads. !important makes file order irrelevant.
+   Discord, plugins, videos and GIFs still consume their own resources. */
+:root {
+  --aw-speed: 0ms !important;
+  --main-font: "gg sans", "Segoe UI", sans-serif !important;
+  --code-font: Consolas, "gg mono", monospace !important;
+  --font-primary: var(--main-font) !important;
+  --font-display: var(--main-font) !important;
+  --font-code: var(--code-font) !important;
+  --background-image: none !important;
+  --background-filter: none !important;
+  --background-attachment: scroll !important;
+  --user-popout-image: none !important;
+  --user-popout-filter: none !important;
+  --user-modal-image: none !important;
+  --user-modal-filter: none !important;
+}
+
+:is(.theme-dark, .theme-darker, .theme-midnight) {
+  --aw-surface: #0a0b11 !important;
+  --aw-surface-raised: #11121b !important;
+  --aw-header: #090a0f !important;
+  --aw-shadow: none !important;
+  --background-shading: #06070b !important;
+  --card-shading: #12131d !important;
+  --popout-shading: #0e0f17 !important;
+  --modal-shading: #0c0d14 !important;
+  --input-shading: #11121c !important;
+}
+:is(.theme-light, .theme-dark .theme-light) {
+  --aw-surface: #f6f4fc !important;
+  --aw-surface-raised: #fcfaff !important;
+  --aw-header: #fcfaff !important;
+  --aw-shadow: none !important;
+  --background-shading: #f8f6fd !important;
+  --card-shading: #efebf9 !important;
+  --popout-shading: #fcfaff !important;
+  --modal-shading: #fcfaff !important;
+  --input-shading: #f0ecf8 !important;
+}
+
+/* including Discord's decorative CSS effects; preserve all controls and text. */
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* only the themed surfaces: never remove spoiler/media filters globally. */
+.bg__960e4,
+.user-profile-popout:not(.custom-user-profile-theme)::before,
+:is(.user-profile-modal, .user-profile-modal-v2):not(.custom-user-profile-theme)::before {
+  filter: none !important;
+  background-image: none !important;
+}
+.sidebarList__5e434, .membersWrap_c8ffbb, .members_c8ffbb,
+.container__9293f.themed__9293f, .header_f37cb1, .panels__5e434,
+.channelTextArea__74017, .channelTextArea__74017:focus-within,
+.menu_c1e9c4, .root__49fc1,
+.userPopoutOuter_c69a7b, .userProfileModalOuter_c69a7b,
+.vc-settings-card, .vc-addon-card, .vc-card-base,
+.embedFull__623de, .file__0ccae, .hljs,
+.button__201d5, .button_a22cb0, .vc-btn-primary,
+.wrapper__6e9f8 .childWrapper__6e9f8 {
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.channelTextArea__74017:focus-within { border-color: var(--focus-color) !important; }
+.slider_a562c8 .grabber_a562c8,
+.wrapper__2ea32.modeConnected__2ea32 .icon__2ea32,
+.selected__91a9d .ownerIcon__5d473 { filter: none !important; }
+.wrapper__2ea32.modeConnected__2ea32 .name__2ea32,
+.wrapper__2ea32.modeUnreadImportant__2ea32 .name__2ea32 { text-shadow: none !important; }
+.unread__2ea32 { box-shadow: none !important; }
+.member__5d473 .nameContainer__703b9::before,
+.member__5d473 .nameContainer__703b9::after { content: none !important; }
+
+/* the selected row still has its edge; readable state matters more than glow. */
+.wrapper__2ea32.modeSelected__2ea32 .link__2ea32,
+.interactive__972a0.interactiveSelected__972a0 {
+  box-shadow: inset 2px 0 var(--main-color) !important;
+}
